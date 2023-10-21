@@ -1,0 +1,148 @@
+@media (max-width:768px) {
+    .header {
+		&__nav {
+
+			&_btn {
+				position: fixed;
+				top: -100px;
+				transition: all 0.5s;
+				&.active{
+					top: 20px;
+					position: fixed;
+				}
+			}
+
+			&_ui-container {
+				position: fixed;
+				top: -100px;
+				transition: all 0.5s;
+				&.active{
+					top: 20px;
+					position: fixed;
+				}
+			}
+
+			&_language {
+				font-size: 18px;
+                display: none;
+
+				&.active{
+					display: flex;
+				}
+			}
+		}
+
+		&__slider {
+			
+			&.active{
+				background-color: #27252500;
+				
+				&::after{
+					transition: transform .5s;
+					transform: rotate(45deg);
+					top: 0px;
+				}
+
+				&::before{
+					transition: transform .5s;
+					transform: rotate(-45deg);
+					top: 0px;
+				}
+			}		
+		}
+
+		&__menu {
+			top: -1000px;
+			left: 50%;
+			width: 70vw;
+			height: max-content;
+			background-color: white;
+			border-radius: 0 0 15px 15px;
+			box-shadow: -1px -1px 2px #888888b0, 1px 1px 2px #888888b0;
+			transform: translate(-50%,);
+			transition: all 0.5s;
+		
+			&.active{
+				top: 0;
+				position: fixed;
+			}
+		}
+
+		&__menu-container {
+			align-items: center;
+		}
+
+		&__list-container {
+			width: auto;
+		}
+
+		&__list {
+			align-items: center;
+		}
+
+		&__item {
+			text-align: center;
+			padding: 7px 14px;
+			background-color: white;
+			width: auto;
+			display: flex;
+			flex-direction: column;
+
+			&:hover,&.active {
+				background-color: white;
+				&::after {
+					content: none; 
+				}
+        	}
+
+			&_menu {
+				position: static;
+				background-color: white;
+
+
+
+				& ul{
+					display: grid;
+					grid-template-columns: repeat(2,1fr);
+				}
+			}
+
+			&_menu-item {
+				height: auto;
+				width: 100%;
+			}
+
+			&_menu-list {
+				color: #272525;
+				padding: 0;
+			}
+
+			&_menu-alfa {
+				display: none;
+			}
+
+			&_menu-ul {
+				background-color: white;
+			}
+		}
+
+		&__item-span {
+			padding: 7px 28px;
+			border-radius: 6px;
+			width: fit-content;
+			align-self: center;
+
+			&:hover,&.active{
+				background-color: #272525;
+				color: white;
+			}
+		}
+
+		&__adaptive_contacts{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 20px;
+		}
+	} 
+}

@@ -1,0 +1,122 @@
+.sub-text{
+	font-family: 'Gilroy Regular';
+	font-size: 18px;
+	line-height: 130%;
+	letter-spacing: 1.17px;
+	color: #272525;
+}
+
+.btn-special-green{
+	font-family: 'Montserrat';
+	font-size: 20px;
+    padding: 18px 4%;
+    background-color: #1FAB8A;
+    color: white;
+    border: none;
+    border-radius: 90px;
+    text-decoration: none;
+    white-space: pre;
+
+    &:hover{
+        background-color: #309F85;
+        color: #fff;
+    }
+    &:active{
+        background-color: #257965;
+    }
+}
+
+.slider-btn{
+	font-size: 28px;
+}
+
+.link-mail{
+    color: #272525;
+}
+
+.contacts-social{
+    font-size: 24px;
+    &:not(:last-child){
+        margin: 0 20px 0 0;
+    }
+}
+
+a:hover{
+    color: #b60808;
+}
+
+.button-up{
+    width: 60px;
+    height: 60px;
+    background-color: #1FAB8A;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    animation: decotateUpButton 4s infinite;
+    i{
+        font-size: 24px;
+        color: #fff;
+    }
+    &:hover{
+        background-color: #199175;
+    }
+    &:active{
+        background-color: #1fc095;
+    }
+}
+
+.div-up{
+    display: none;  
+    position: fixed;
+    z-index: 100;
+    right: 3%;
+    bottom: 3%;
+    width: 60px;
+    height: 60px;
+    background-color: #1fab8a41;
+    border-radius: 50%;
+    cursor: pointer;
+    animation: decotateUpDiv 4s infinite;
+}
+
+.cl-blue{
+    color: #1877F2;
+}
+.cl-pink{
+    color: #EC3397;
+}
+.cl-blueGrey{
+    color: #0A66C2;
+}
+.cl-green{
+    color: #1FAB8A;
+}
+.cl-grey{
+    color: #7981AD;
+}
+
+
+
+@keyframes decotateUpButton {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(0.7);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes decotateUpDiv {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
