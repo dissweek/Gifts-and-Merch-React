@@ -1,20 +1,17 @@
 import React, { useState } from "react";
+import Submenu from "./Submenu";
 
 function Menu (props){
-    const [extramenu,setExtramenu]=useState(false)
+    const [extraMenu,setExtraMenu]=useState(false)
     // console.log(props.submenu)
     return(
-        <li className={`header__item ${extramenu? 'active' : ''}`} onMouseOver={(()=>{setExtramenu(true)})} onMouseOut={(()=>{setExtramenu(false)})}><a href={props.link} className={`header__item-span ${extramenu? 'active' : ''}`}>{props.name}</a>
+        <li className={`header__item ${extraMenu? 'active' : ''}`} onMouseOver={(()=>{setExtraMenu(true)})} onMouseOut={(()=>{setExtraMenu(false)})}><a href={props.link} className={`header__item-span ${extraMenu? 'active' : ''}`}>{props.name}</a>
         {props.submenu &&
-            <div className={`header__item_menu ${extramenu? 'active' : ''}`}>
+            <div className={`header__item_menu ${extraMenu? 'active' : ''}`}>
                 <ul>
-                    {props.submenu.map((i,index)=>{
+                    {props.submenu.map((obj,index)=>{
                         return(
-                            <li className="header__item_menu-item">
-                                <div className="header__item_menu-cnt">
-                                    <a href={i.link} className="header__item_menu-list ">{i.name}</a>
-                                </div>
-                            </li>
+                            <Submenu key={index} {...obj}/>
                         )
                     })}
                 </ul>

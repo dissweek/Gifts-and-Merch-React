@@ -1,16 +1,18 @@
 import React from 'react'
+import {Swiper,SwiperSlide,} from 'swiper/react'
+import {Navigation } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation';
+import SliderBtn from './SliderBtn';
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 import creativeImage from "../../assets/img/creative-image.png"
 import creativePhoto from "../../assets/img/creative-we-can-photo.png"
 import creativeCircle from "../../assets/img/creative-circle.png"
-import creativeWeCan1 from "../../assets/img/wecan1.png"
-import creativeWeCan2 from "../../assets/img/wecan2.png"
-import creativeWeCan3 from "../../assets/img/wecan3.png"
-import creativeWeCan4 from "../../assets/img/wecan4.png"
 
-
-
-
+import { sliderCreative } from '../../assets/list/sliders'
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 function Creative (){
+
 return(<>
 <section className="creative">
     <div className="creative__wrapper">
@@ -54,29 +56,16 @@ return(<>
             </p>
             <div className="creative__we-can_slider">
                 <div  className="creative__we-can_slider-wrapper">
-                    <div className="creative__we-can_slider-link">
-                        <div className="creative__we-can_slider-link-cnt"><img src={creativeWeCan1} alt="" />
-                        </div>
-                        <div className="creative__we-can_slider-link-cnt"><img src={creativeWeCan2} alt="" />
-                        </div>
-                        <div className="creative__we-can_slider-link-cnt"><img src={creativeWeCan3} alt="" /> 
-                        </div>
-                        <div className="creative__we-can_slider-link-cnt"><img src={creativeWeCan4} alt="" />
-                        </div>
-                        <div className="creative__we-can_slider-link-cnt"><img src={creativeWeCan1} alt="" />
-                        </div>
-                        <div className="creative__we-can_slider-link-cnt"><img src={creativeWeCan2} alt="" />
-                        </div>
-                        <div className="creative__we-can_slider-link-cnt"><img src={creativeWeCan3} alt="" />
-                        </div>
-                        <div className="creative__we-can_slider-link-cnt"><img src={creativeWeCan4} alt="" />
-                        </div>
-                    </div>
-                </div>
-                <div className="creative__we-can_slider-btn-container">
-                    <i className="fa fa-light fa-chevron-left creative__we-can_slider-btn btn-left
-                        cl-grey"></i>
-                    <i className="fa fa-light fa-chevron-right creative__we-can_slider-btn btn-right cl-grey "></i>
+                    <Swiper modules={[Navigation]} spaceBetween={0} slidesPerView={4} slidesPerGroup={4} loop={true}>
+                        {sliderCreative.map((i,index)=>{return (
+                            <SwiperSlide key={index}>
+                                <div className="creative__we-can_slider-link-cnt">
+                                    <img src={i.logo} alt="" />
+                                </div>
+                            </SwiperSlide>
+                        )})}
+                        <SliderBtn />
+                    </Swiper>   
                 </div>
             </div>
         </div>

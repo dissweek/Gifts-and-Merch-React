@@ -24,102 +24,13 @@ return(<>
                     </button>
                 </div>
             </div>
-            <div className={burger ? "header__menu active" : "header__menu active"}>
+            <div className={burger ? "header__menu active" : "header__menu"}>
                 <div className="header__menu-container wrapper">
                     <div className="header__list-container">
                         <ul className="header__list">
                         {menuList.map((i,index)=>{
                         return <Menu key={index} {...menuList[index]}/>})}
-                            {/*  <li className="header__item"><a href="./pages/index.html" className="header__item-span">Наборы</a></li>
-                            <li className="header__item menu-check">
-                                <a href="./pages/catalog/index.html" className="header__item-span">Все Товары</a>
-                                <div className="header__item_menu first-menu">
-                                    <ul>
-                                        <li className="header__item_menu-item">
-                                            <div className="header__item_menu-cnt">
-                                                <a href="./pages/index.html" className="header__item_menu-list ">Одежда</a>
-                                            </div>
-                                        </li>
-                                        <li className="header__item_menu-item second-menu-check">
-
-                                            <a href="./pages/index.html" className="header__item_menu-list header__item_menu-list-a ">Сумки и аксессуары</a>
-                                            <div className="header__item_menu-sub header__item_menu ">
-                                                <div className="header__item_menu-alfa">
-                                                </div>
-                                                <ul className="header__item_menu-ul">
-                                                    <li className="header__item_menu-item">
-                                                        <a href="./pages/index.html" className="header__item_menu-list ">- рюкзак</a>
-                                                    </li>
-                                                    <li className="header__item_menu-item">
-                                                        <a href="./pages/index.html" className="header__item_menu-list ">-Сумка/Экосумка</a>
-                                                    </li>
-                                                    <li className="header__item_menu-item">
-                                                        <a href="./pages/index.html" className="header__item_menu-list ">- Бананка</a>
-                                                    </li>
-                                                    <li className="header__item_menu-item">
-                                                        <a href="./pages/index.html" className="header__item_menu-list ">- Шапка</a>
-                                                    </li>
-                                                    <li className="header__item_menu-item">
-                                                        <a href="./pages/index.html" className="header__item_menu-list ">- Кепка</a>
-                                                    </li>
-                                                    <li className="header__item_menu-item">
-                                                        <a href="./pages/index.html" className="header__item_menu-list ">- Маска для сна</a>
-                                                    </li>
-                                                    <li className="header__item_menu-item">
-                                                        <a href="./pages/index.html" className="header__item_menu-list ">- Брелки</a>
-                                                    </li>
-                                                </ul>
-
-                                            </div>
-
-                                        </li>
-                                        <li className="header__item_menu-item">
-                                            <div className="header__item_menu-cnt">
-                                                <a href="./pages/index.html" className="header__item_menu-list ">Для офиса</a>
-                                                <div className="header__item_menu-sub">
-
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="header__item_menu-item">
-                                            <div className="header__item_menu-cnt">
-                                                <a href="./pages/index.html" className="header__item_menu-list ">Посуда</a>
-                                                <div className="header__item_menu-sub">
-
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="header__item_menu-item">
-                                            <div className="header__item_menu-cnt">
-                                                <a href="./pages/index.html" className="header__item_menu-list ">Отдых</a>
-                                                <div className="header__item_menu-sub">
-
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="header__item_menu-item">
-                                            <div>
-                                                <a href="./pages/index.html" className="header__item_menu-list ">Вкусности</a>
-                                                <div className="header__item_menu-sub">
-
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="header__item_menu-item">
-                                            <div className="header__item_menu-cnt">
-                                                <a href="./pages/index.html" className="header__item_menu-list ">Электроника</a>
-                                                <div className="header__item_menu-sub">
-
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </li>
-                            <li className="header__item"><a href="./pages/index.html" className="header__item-span">Пошив</a></li>
-                            <li className="header__item"><a href="./pages/index.html" className="header__item-span">Производство</a></li>
-                            <li className="header__item"><a href="./pages/index.html" className="header__item-span">Информация</a></li>*/}
+                            
                         </ul> 
                         <div className="header__adaptive_contacts">
                             <a href="mailto:dissfx2@gmail.com" className="header__adaptive_mail link-mail">dissfx2@gmail.com</a>

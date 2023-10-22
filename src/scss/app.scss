@@ -278,6 +278,7 @@
 			display: flex;
 			align-items: center;
 
+
 			&-wrapper{
 				overflow: hidden;
 				max-width: 664px;
@@ -296,6 +297,8 @@
 			gap: 10px;
 			display: flex;
 			align-items: center;
+			width: min-content;
+			margin: 0 auto;			
 		}
 
 		&_slder-btn-left {

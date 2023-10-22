@@ -95,6 +95,31 @@ a:hover{
     color: #7981AD;
 }
 
+.slider{
+    background:none;
+    border: none;
+    width: 20px;
+    font-size: 24px;
+}
+
+.next,.prev{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    border: none;
+    background: white;
+    z-index: 23;
+}
+.next{
+    right: 0;
+}
+.prev{
+    left: 0;
+}
+
+.swiper-wrapper{
+    width: calc(100% - 10%);
+}
 
 
 @keyframes decotateUpButton {

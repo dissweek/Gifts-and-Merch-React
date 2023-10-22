@@ -251,8 +251,16 @@
                     height: 8px;
                     background-color: #272525;
                     border-radius: 6px;
+                }
+                &::before {
+                    content: ' ';
+                    position: absolute;
+                    top: 100px;
+                    left: 0;
+                    width: 100%;
+                    height: 30px;
+                    background-color: none;
 
-                    
                 }
         }
 
@@ -325,6 +333,7 @@
                     color:  #3C336C;
                 }
                 &.active {
+                    color:  #3C336C;
                     display: flex;
                     align-items: center;
                     justify-content: start;

@@ -20,37 +20,30 @@ export const menuList = [
                     {
                         name:'- рюкзак',
                         link:'',
-                        submenu:false,
                     },
                     {
-                        name:'-Сумка/Экосумка',
+                        name:'- Сумка/Экосумка',
                         link:'',
-                        submenu:false,
                     },
                     {
                         name:'- Бананка',
                         link:'',
-                        submenu:false,
                     },
                     {
                         name:'- Шапка',
                         link:'',
-                        submenu:false,
                     },
                     {
                         name:'- Кепка',
                         link:'',
-                        submenu:false,
                     },
                     {
                         name:'- Маска для сна',
                         link:'',
-                        submenu:false,
                     },
                     {
                         name:'- Брелки',
                         link:'',
-                        submenu:false,
                     },
                 ]
             },
