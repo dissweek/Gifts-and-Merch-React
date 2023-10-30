@@ -92,7 +92,7 @@
     }
     .idea{
         &__form{
-            &_input,&_input-search{
+            &_input-search{
                 width: 20%;
             }
         }
@@ -158,7 +158,10 @@
                 flex-direction: row;
             }
 
-            &_input,&_input-search{
+            &_input{
+                width: 110%;
+            }
+            &_input-search{
                 width:100%;
             }
 
@@ -334,7 +337,7 @@
         &__form{
             &_container{
                 flex-direction: row;
-                justify-content: space-between;
+                justify-content: space-around;
             }
 
 
@@ -576,6 +579,9 @@
             }
             &_input{
                 width: 90%;
+                &-cnt{
+                    width: 100%;
+                }
             }
         }
     }
@@ -639,7 +645,7 @@
     .main {
         &__banner {
             padding: 100px 0 0;
-        
+        }
 
         &_text-container {
             margin: 0 0 250px 0;
@@ -673,8 +679,8 @@
         &_adaptive-space {
             height: 300px;
         }
+        
     }
-}
     
     .popular {
         &__nav-title {
@@ -706,6 +712,17 @@
             &_image-up{
                 width: 180px;
             }
+        }
+    }
+    .idea{
+        &__form{
+            &_input{
+                width: 90%;
+
+                &::placeholder{
+                    font-size: 14px;
+                }
+            }   
         }
     }
 }

@@ -1,0 +1,236 @@
+.card_blur{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 50;
+    backdrop-filter: blur(5px);
+}
+
+.card_cnt{
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1000;
+    display: flex;
+    width: 1300px;
+    padding: 28px;
+    height: 70vh;
+    background: #FAFAFA;
+    border-radius: 25px;
+    box-shadow: 0px 8.02828px 8.02828px -4.01414px rgba(26, 32, 44, 0.04), 0px 16.05656px 20.0707px -4.01414px rgba(26, 32, 44, 0.10);
+}
+
+.closed_window{
+    position: absolute;
+    z-index: 10;
+    right: 10px;
+    top: 10px;
+    padding: 5px 10px;
+    min-width: min-content;
+    height: min-content;
+    background:none;
+    border: 4px solid #272525;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover{
+        border-color: #524983;
+        i{
+            color: #524983;
+        }
+    }
+    &:active{
+        border-color: #441b1bfa;
+        i{
+            color: #441b1bfa;
+        }
+    }
+
+
+
+    i{
+        color: #272525;
+        font-size: 36px;
+    }
+}
+
+
+.swiper{
+    &_cnt{
+        width: 100%;
+        height: 70%;
+    }
+    
+    &_slide{
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 0px 4.02828px 4.02828px -4.01414px rgba(26, 32, 44, 0.04), 0px 5px 6px -4.01414px rgba(26, 32, 44, 0.10);
+        
+        &_img{
+            border-radius: 15px;
+            width: 100%;
+        }
+    }
+
+}
+.swiper_slide :global(.swiper){
+    border-radius: 25px;
+}
+.swiper_slide_bar :global(.swiper){
+    margin-top: 20px;
+}
+
+.left{
+
+    &_cnt{
+        width: 40%;
+        margin-right: 50px;
+    }
+}
+
+
+.right{
+    &_cnt{
+    }
+
+    &_title{
+        font-size: 36px;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: uppercase;
+        width: 80%;
+        
+        &_cnt{
+            margin-bottom: 20px;
+        }
+    }
+
+    &_color{
+
+        border: 2px solid rgb(0, 0, 0) !important;
+        width: 30px !important;
+        height: 30px !important;
+        margin-left: 20px;
+
+        &_cnt{
+            margin-bottom: 20px;
+        }
+
+        &:global(.active){
+            display: inline;
+            transform: scale(1.5);
+            transition: transform .3s ;
+        }
+    }
+
+    &_price{
+
+        color:  #272525;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 105.5%;
+
+        &_cnt{
+            margin-bottom: 20px;
+        }
+    }
+
+    &_text{
+        
+        font-weight: 400;
+
+        &_cnt{
+            margin-bottom: 40px;
+        }
+    }
+
+    &_low{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &_size{
+        
+        margin-bottom: 90px;
+
+        &_cnt{
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        &_span{
+            font-weight: 600;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        &_text{
+            color: #27252594;
+            font-family: 'Gilroy Medium';
+            font-size: 22px;
+            line-height: 105.5%; /* 16.88px */
+            padding: 10px;
+            margin-right: 20px;
+            cursor: pointer;
+
+            &:first-child{
+                padding-left:0px;
+            }
+
+            &:global(.active){
+                display: inline;
+                color: #272525;
+                font-family: 'Gilroy Regular';
+                font-size: 22px;
+                font-weight: 600;
+                line-height: 105.5%; /* 16.88px */
+                margin-right: 20px;
+            }
+        }
+    }
+    
+    &_btnBuy{
+        padding: 16px 84px;
+        border-radius: 60px;
+        background: #524983;
+        border: none;
+
+        &:hover{
+            background: #5f5597;
+        }
+        &:active{
+            background: #413b68;
+            transform: scale(0.95);
+        }
+
+        &_cnt{
+        }
+
+        & span{
+            color: white;
+            font-size: 20px;
+        }
+    }
+
+    &_params{
+
+        &_cnt{
+            width: 60%;
+        }
+
+        &_text{
+            font-weight: 500;
+            width: 50%;
+
+            &_cnt{
+                display: flex;
+                justify-content: space-between;
+                padding: 10px 0;
+                border-bottom: 2px solid #272525;
+            }
+        }
+    }
+}

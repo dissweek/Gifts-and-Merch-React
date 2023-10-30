@@ -6,44 +6,51 @@ export const menuList = [
     },
     {
         name:'Все Товары',
-        link:'',
+        link:'catalog',
         submenu:[
             {
                 name:'Одежда',
-                link:'',
+                link:'catalog',
                 submenu:false,
             },
             {
                 name:'Сумки и аксессуары',
-                link:'',
+                link:'catalog',
                 submenu:[
                     {
                         name:'- рюкзак',
-                        link:'',
+                        link:'catalog',
+                        category:'backpack'
                     },
                     {
                         name:'- Сумка/Экосумка',
-                        link:'',
+                        link:'catalog',
+                        category:'backpack'
                     },
                     {
                         name:'- Бананка',
-                        link:'',
+                        link:'catalog',
+                        category:'bnp'
                     },
                     {
                         name:'- Шапка',
-                        link:'',
+                        link:'catalog',
+                        category:''
                     },
                     {
                         name:'- Кепка',
-                        link:'',
+                        link:'catalog',
+                        category:''
                     },
                     {
                         name:'- Маска для сна',
-                        link:'',
+                        link:'catalog',
+                        category:''
                     },
                     {
                         name:'- Брелки',
-                        link:'',
+                        link:'catalog',
+                        category:''
                     },
                 ]
             },

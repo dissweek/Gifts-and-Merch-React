@@ -1,0 +1,104 @@
+.popular {
+	position: relative;
+	z-index: 3;
+	padding: 70px 0;
+	margin: 0 0 80px;
+	background-image: url(../../assets/img/main-banner-popular.png);
+	background-size: 150% 100%;
+	background-repeat: no-repeat;
+	background-position-x: center;
+	margin-top: -150px;
+
+	&__nav-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 0 30px 0;
+	}
+
+	&__nav {
+
+		&_text-container {
+			width: 50%;
+		}
+
+		&_link {
+			text-decoration: none;
+			font-family: 'Gilroy Regular';
+			font-size: 18px;
+			line-height: 130%;
+			letter-spacing: 0.065em;
+			color: #272525;
+		}
+	}
+
+	&__nav-title {
+		font-family: 'Gilroy Bold';
+		font-style: normal;
+		font-size: 48px;
+		line-height: 58px;
+		color: #272525;
+
+		&_icon {
+			font-size: 24px;
+			vertical-align: super;
+		}
+	}
+
+	&__nav-subtext {
+		text-transform: lowercase;
+	}
+
+	&__images {		
+		
+		&_grid-container {
+			display: grid;
+			grid-template-columns: repeat(5, 1fr);
+			grid-template-rows: repeat(2,minmax(140px,283px));
+			gap: 20px;
+			cursor: pointer;
+		}
+		
+		&_1 {
+			grid-column-start: 1;
+			grid-column-end: 4;
+			grid-row-start: 1;
+			grid-row-end: 3;
+		}
+		
+		&_2 {
+			grid-column-start: 4;
+			grid-column-end: 6;
+			grid-row-start: 1;
+			grid-row-end: 1;
+		}
+		
+		&_3 {
+			grid-column-start: 4;
+			grid-column-end: 5;
+			grid-row-start: 2;
+			grid-row-end: 2;
+		}
+		
+		&_4 {
+			grid-column-start: 5;
+			grid-column-end: 6;
+			grid-row-start: 2;
+			grid-row-end: 2;
+		}
+
+		&_img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 15px;
+			transition: transform .3s ;
+			&:hover{
+				transform: scale(1.05);
+			}
+			&:active{
+				transform: scale(1);
+			}
+		}
+	}
+}

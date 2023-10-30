@@ -1,22 +1,85 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+
 import userSvg from "../../assets/img/user.svg"
 import shopperImg from "../../assets/img/Header-shopper.png"
 import Menu from './Menu'
 import {menuList} from './menuList'
+import { Link,useLocation } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { getShopItem, setCategory, setSearch } from '../../redux/slices/catalogSlice'
+import Search, { notItem } from '../Search/Search'
+import WindowItem from '../WindowItem/WindowItem'
 
 function Header (){
     const [burger,setBurger] = useState(false)
+    const {search,items} = useSelector(state=>state.catalog)
+    const location = useLocation().pathname
+    const [inputSearch,setInputSearch] = useState(true)
+    const {itemsCart,windowObj} = useSelector(state=>state.cart)
+    const dispatch=useDispatch()
+    const searchRef = useRef()
+    const inputRef = useRef()
+
+
+
+    const getSearch = useCallback(
+        (e)=>{
+            dispatch(setSearch(e.target.value))
+        },
+    )
+    
+    
+    const getItem = async () =>{
+        dispatch(getShopItem({search}))
+    }
+
+    useEffect(()=>{ 
+        getItem();
+    },[search])
+
+
+    const counter = (a) => a.reduce((sum, obj) => {
+        return obj.count + sum;
+    }, 0)
+
+    useEffect(()=>{
+        const clickNotSearch = (event) =>{
+            !event.composedPath().includes(inputRef.current) && setInputSearch(false)
+        }
+        document.body.addEventListener('click',clickNotSearch)
+
+        return () => document.body.removeEventListener('click',clickNotSearch)
+    },[])
+
+
 return(<>
     <header className="header ">
         <div className="header__wrapper ">
             <div className="header__nav_bar-container wrapper">
-               <h3 className="header__nav_title"> <a href="./../../index.html">GIFTS & MERCH</a></h3>
-                <input type="search" name="headerSerach" aria-label="Search" placeholder="Search"
-                    className="header__nav_search" />
+                <h3 className="header__nav_title"> <Link to='/' >GIFTS & MERCH</Link></h3>
+                <div  ref={inputRef} className="header__nav_search-cnt">
+                    <input type="search"  value={search} onFocus={()=>setInputSearch(true)} onChange={(e)=>getSearch(e)} name="headerSerach" aria-label="Search" placeholder="Search"
+                        className="header__nav_search" />
+                        {
+                            (search && location !== '/catalog' && inputSearch) && 
+                            <div ref={searchRef} className="header__search_container">
+                                {console.log(location)}
+                                <div className='header__search_container-scroll'>{items.length>1 ? items.map(item => {return <Search key={item.id} i={item} inputSearch={setInputSearch} />}) : notItem()}</div>
+                                <div className="header__search_link-cnt">
+                                    <Link to='catalog'  className="header__search_link"> Перейти в каталог</Link>
+                                </div>
+                            </div>
+                           
+                        }
+                </div>
                 <i className="fa fa-light fa-magnifying-glass header__nav_search-adaptive"></i>
                 <a className="header__nav_tel btn-special-green" href="tel:+380-630-130-103">+380 630 130 103</a>
-                <button className={burger ? "header__nav_btn active" : "header__nav_btn active"}><img src={userSvg} alt="" /></button>
-                <div className={burger ? "header__slider_container active" : "header__slider_container active"} onClick={()=>setBurger(!burger)}><span className="header__slider"></span></div>
+                <button className={burger ? "header__nav_btn active" : "header__nav_btn "}><img src={userSvg} alt="" /></button>
+                <div className="header__nav_cart">
+                    <i className="fa-solid fa-basket-shopping cart"></i>
+                    <div className='header__nav_cart_circle'>{counter(itemsCart)}</div>
+                </div>
+                <div className={burger ? "header__slider_container active" : "header__slider_container "} onClick={()=>setBurger(!burger)}><span className="header__slider"></span></div>
                 <div className={burger ? "header__nav_ui-container active": "header__nav_ui-container"}>
                     <button className={ burger ? 'header__nav_language active':"header__nav_language"}>
                         <span className="header__nav_language-ru active">RU</span>/<span
@@ -43,12 +106,13 @@ return(<>
                         </div>
                     </div>
                     <div className="header__promo-container">
-                        <a href="./pages/index.html" className="header__promo">шопперы со скидкой -25%</a>
+                        <Link to='catalog' onClick={()=>dispatch(setCategory('shopper'))} className="header__promo">шопперы со скидкой -25%</Link>
                     </div>
                 </div>
                 <img src={shopperImg} alt="shopper" className="header__shopper" />
             </div>
         </div>
+        {windowObj && <WindowItem {...windowObj} />}
     </header>
 </>)
 }

@@ -57,6 +57,13 @@
     }
 
     &__nav {
+        &_cart{
+            width: 40px;
+            i{
+                // font-size: 32px;
+            }
+        }
+
         &_bar-container {
             display: flex;
             align-items: center;
@@ -67,6 +74,7 @@
 
             @media (max-width:992px) {
                 padding: 20px calc(1.5% + 32px);
+                width: 100%;
             }
 
             @media (max-width:888px) {
@@ -75,6 +83,38 @@
 
             @media (max-width:576px) {
                 padding: 20px;
+            }
+
+        }
+
+        &_cart{
+            font-size: 36px;
+            position: relative;
+            cursor: pointer;
+            &:hover{
+                color: rgb(38, 51, 109);
+            }
+
+            @media (max-width:992px) {
+                font-size: 28px;
+            }
+
+            @media (max-width:576px) {
+                font-size: 26px;
+                margin-right: 20px;
+            }
+
+            &_circle{
+                position: absolute;
+                bottom: -10px;
+                right: -10px;
+                background-color: #1FAB8A;
+                color: rgb(255, 255, 255);
+                border-radius: 50%;
+                text-align: center;
+                font-size: 20px;
+                width: 25px;
+                height: 25px;
             }
         }
 
@@ -90,38 +130,49 @@
 
             @media (max-width:1024px) {
                 letter-spacing: 1px;
-            }
 
+            }
+            @media (max-width:940px) {
+                width: 90%;
+            }
+            
             @media (max-width:768px) {
                 font-size: 28px;
             }
 
             @media (max-width:576px) {
-                font-size: 16px;
+                font-size: 22px;
             }
         }
 
         &_search {
+
             font-size: 20px;
-            width: 25%;
-            padding: 8px 2%;
+            width: 100%;
+            padding: 8px 3%;
             border: 2px solid #272525;
             border-radius: 90px;
 
             @media (max-width:992px) {
                 display: none;
             }
-        }
 
+            &-cnt{
+                width: 40%;
+                position: relative;
+            }
+        }
+        
         &_search-adaptive {
             font-size: 0;
-
+            
             @media (max-width:992px) {
                 font-size: 28px;
             }
 
             @media (max-width:576px) {
-                font-size: 16px;
+                font-size: 26px;
+                margin-right: 20px;
             }
         }
 
@@ -175,6 +226,54 @@
         &_language .active {
             color: black;
         }
+    }
+    &__search{
+        &_container{
+            box-sizing: border-box;
+            position: absolute;
+            top: 50px;
+            padding: 10px;
+            width: 100%;
+            max-height: 510px;
+            // overflow-y: scroll;
+            border: 2px solid rgb(197, 186, 202);
+            border-radius: 25px;
+            background-color: rgb(237 224 243);
+            z-index: 10;
+
+            &-scroll{
+                max-height: 450px;
+                overflow-y: scroll;
+                border-radius: 25px;
+                padding-left: 10px;
+
+                &::-webkit-scrollbar {
+                    width: 10px;
+                }
+    
+                &::-webkit-scrollbar-track {
+                    // -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+                    background-color: #f9f9fd00;
+                    border-radius: 10px;
+                }
+    
+                &::-webkit-scrollbar-thumb {
+                    
+                    border-radius: 10px;
+                    background: linear-gradient(180deg, #2a6d805e, #9176f57a);
+                }
+            }
+        }
+
+        &_link{
+            font-size: 20px;
+            &-cnt{
+                text-align: center;
+                padding: 10px;
+            }
+        }
+
+        
     }
 
     &__menu {
@@ -415,6 +514,9 @@
     &__adaptive_contacts{
         display: none;
     }
+
+
 }
+
 
 @import '_burger'

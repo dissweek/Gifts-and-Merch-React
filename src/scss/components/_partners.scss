@@ -1,0 +1,43 @@
+.partners {
+	padding: 60px 0 60px;
+
+	&__slider {
+
+		&_title {
+			color: #222227;
+			font-size: 48px;
+			font-family: 'Gilroy Bold';
+			font-weight: 700;
+			margin: 0 0 80px;
+		}
+
+		&_wrapper {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		&_overflow{
+			overflow-x: hidden;
+		}
+
+		&_slider {
+			position: relative;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			transition: all 1s;
+		}
+
+		&_img-container {
+			display: flex;
+			min-width: 20%;
+			align-items: center;
+			justify-content: center;
+		}
+
+		&_img {
+			object-fit: cover;
+		}
+	}
+}

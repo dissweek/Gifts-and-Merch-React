@@ -1,11 +1,14 @@
 import React from "react";
 import { useState } from "react";
+import { setCategory } from "../../redux/slices/catalogSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 
 function Submenu(props) {
     const {link,name,submenu} = {...props}
     const [extraSubMenu,setExtraSubMenu]=useState(false)
-
+    const dispatch = useDispatch()
   return (
     <li className="header__item_menu-item" onMouseOver={(()=>{setExtraSubMenu(true)})} onMouseOut={(()=>{setExtraSubMenu(false)})}>
       <div className="header__item_menu-cnt">
@@ -22,11 +25,11 @@ function Submenu(props) {
             <ul className="header__item_menu-ul">
               {submenu.map((i, index) => {
                 return (
-                  <li key={index} className="header__item_menu-item">
-                    <a href={i.link} className="header__item_menu-list ">
+                  <Link to={i.link} key={index} onClick={()=>dispatch(setCategory(i.category),setExtraSubMenu(false))} className="header__item_menu-item">
+                    <li className="header__item_menu-list ">
                       {i.name}
-                    </a>
-                  </li>
+                    </li>
+                  </Link>
                 );
               })}
             </ul>

@@ -3,6 +3,7 @@ import React from 'react'
 function Footer (){
 return(<>
  <footer className="footer">
+    
         <div className="footer__wrapper wrapper">
             <div className="footer__title-and-contacts">
                 <div className="footer__title_container">

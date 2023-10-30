@@ -1,0 +1,71 @@
+.header__search{
+    &_item{
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        background-color: rgba(209, 177, 252, 0.637);
+        border-radius: 15px;
+        margin-bottom: 10px;
+        .wrapper{
+            display: flex;
+        }
+    }
+
+
+    &_noItem{
+        display: block;
+        text-align: center;
+        padding: 20px;
+
+       
+            &_text{
+                font-size: 22px;
+            }
+            &_subText{
+                font-size: 18px;
+            }
+        
+    }
+
+    &_img{
+        width: 100%;
+        border-radius: 10px;
+
+        &_cnt{
+            max-width: 100px;
+            width: 100%;
+            margin-right: 10px;
+        }
+    }
+
+    &_info{
+        margin-right: 20px;
+        &_name{
+            
+        }
+        &_subName{
+
+        }
+    }
+
+        &_price{
+
+            // margin-bottom: 30px;
+
+            &_cnt{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+
+            }
+
+            &_btn{
+                .cart{
+                    font-size: 28px;
+                }
+            }
+        }
+
+}
+
+

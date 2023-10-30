@@ -24,6 +24,11 @@
     &:active{
         background-color: #257965;
     }
+
+    &:disabled{
+        background-color: #919796a4;
+        text-decoration: line-through;
+    }
 }
 
 .slider-btn{
@@ -119,8 +124,16 @@ a:hover{
 
 .swiper-wrapper{
     width: calc(100% - 10%);
+    transition-timing-function: linear;
 }
 
+.swiper-slide-visible{
+    filter: brightness(0.7);
+}
+
+.swiper-slide-thumb-active{
+    filter: brightness(1);
+}
 
 @keyframes decotateUpButton {
     0%{
@@ -145,3 +158,4 @@ a:hover{
         transform: scale(1);
     }
 }
+

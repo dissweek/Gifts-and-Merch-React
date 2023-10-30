@@ -1,16 +1,16 @@
 import React, {useEffect, useRef, useState} from 'react'
 import { partnersSlider } from '../../assets/list/sliders'
 import {Swiper,SwiperSlide,} from 'swiper/react'
-import {Navigation } from 'swiper/modules'
+import {Navigation,Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation';
 
 function Partners (){
     const checkSliderWidth= useRef()
     const checkImgWidth = useRef()
-    const [sliders,setSliders] = useState()
+    const [sliders,setSliders] = useState(5)
     useEffect(()=>{
-    setSliders(Math.floor(checkSliderWidth.current.clientWidth / checkImgWidth.current.clientWidth))
+        setSliders(Math.floor(checkSliderWidth.current.clientWidth / checkImgWidth.current.clientWidth))
     console.log(sliders)
     },[checkSliderWidth,checkImgWidth,sliders])
 
@@ -23,7 +23,7 @@ function Partners (){
                 <div className="partners__slider_wrapper">
                     <div className="partners__slider_overflow">
                         <div ref={checkSliderWidth} className="partners__slider_slider">
-                            <Swiper modules={[Navigation]} spaceBetween={0} slidesPerView={sliders} navigation={{ prevEl: '.prev', nextEl: '.next' }} slidesPerGroup={sliders} loop={true}>
+                            <Swiper modules={[Autoplay]}  autoplay= {{delay:0,disableOnInteraction: false}} speed={2000}  spaceBetween={0} slidesPerView={sliders == Infinity ? 5 : sliders } slidesPerGroup={1} loop={true}>
                                 {partnersSlider.map((i,index)=>{ return (
                                     <SwiperSlide key={index}>
                                         <div className="partners__slider_img-container">
@@ -31,8 +31,8 @@ function Partners (){
                                         </div>
                                     </SwiperSlide>
                                 )})}
-                                <button slot="container-start"  className='prev'><i className="fa fa-light fa-chevron-left slider-btn btn-left cl-grey" ></i></button>
-                                <button slot="container-end"  className='next'><i className="fa fa-light fa-chevron-right slider-btn btn-right cl-grey "></i></button>
+                                {/* <button slot="container-start"  className='prev'><i className="fa fa-light fa-chevron-left slider-btn btn-left cl-grey" ></i></button>
+                                <button slot="container-end"  className='next'><i className="fa fa-light fa-chevron-right slider-btn btn-right cl-grey "></i></button> */}
                             </Swiper>
                         </div>
                     </div>
