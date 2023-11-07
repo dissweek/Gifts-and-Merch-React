@@ -9,6 +9,10 @@
 	background-position-x: center;
 	margin-top: -150px;
 
+	@media (max-width:992px){
+		margin: 0;
+	}
+
 	&__nav-container {
 		display: flex;
 		justify-content: space-between;
@@ -20,6 +24,10 @@
 
 		&_text-container {
 			width: 50%;
+
+			@media (max-width:720px){
+				width: 100%;
+			}
 		}
 
 		&_link {
@@ -29,6 +37,15 @@
 			line-height: 130%;
 			letter-spacing: 0.065em;
 			color: #272525;
+
+			@media (max-width:720px){
+				position: absolute;
+                bottom: 20px;
+                right: 32px;
+			}
+			@media (max-width:576px){
+				font-size: 14px;
+			}
 		}
 	}
 
@@ -39,9 +56,21 @@
 		line-height: 58px;
 		color: #272525;
 
+		@media (max-width:992px){
+			font-size: 24px;
+			line-height: 32px;
+		}
+
 		&_icon {
 			font-size: 24px;
 			vertical-align: super;
+
+			@media (max-width:992px){
+				font-size: 16px;
+			}
+			@media (max-width:576px){
+				line-height: 28px;
+			}
 		}
 	}
 
@@ -50,13 +79,24 @@
 	}
 
 	&__images {		
-		
+
 		&_grid-container {
 			display: grid;
 			grid-template-columns: repeat(5, 1fr);
 			grid-template-rows: repeat(2,minmax(140px,283px));
 			gap: 20px;
 			cursor: pointer;
+
+			@media (max-width:992px){
+				zoom: 0.7;
+			}
+			@media (max-width:720px){
+				grid-template-columns: repeat(2,auto);
+                grid-template-rows: repeat(4,300px);
+			}
+			@media (max-width:470px){
+                grid-template-rows: repeat(4,200px);
+			}
 		}
 		
 		&_1 {
@@ -64,6 +104,13 @@
 			grid-column-end: 4;
 			grid-row-start: 1;
 			grid-row-end: 3;
+
+			@media (max-width:720px){
+				grid-column-start: 1;
+                grid-column-end: 3;
+                grid-row-start: 1;
+                grid-row-end: 3;
+			}
 		}
 		
 		&_2 {
@@ -71,6 +118,13 @@
 			grid-column-end: 6;
 			grid-row-start: 1;
 			grid-row-end: 1;
+
+			@media (max-width:720px){
+                grid-column-start: 1;
+                grid-column-end: 3;
+                grid-row-start: 3;
+                grid-row-end: 3;
+			}
 		}
 		
 		&_3 {
@@ -78,6 +132,13 @@
 			grid-column-end: 5;
 			grid-row-start: 2;
 			grid-row-end: 2;
+
+			@media (max-width:720px){
+                grid-column-start: 1;
+                grid-column-end: 1;
+                grid-row-start: 4;
+                grid-row-end: 4;
+			}
 		}
 		
 		&_4 {
@@ -85,6 +146,13 @@
 			grid-column-end: 6;
 			grid-row-start: 2;
 			grid-row-end: 2;
+
+			@media (max-width:720px){
+				grid-column-start: 2;
+                grid-column-end: 2  ;
+                grid-row-start: 4;
+                grid-row-end: 4;
+			}
 		}
 
 		&_img {

@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getShopItem, setCategory, setSearch } from '../../redux/slices/catalogSlice'
 import Search, { notItem } from '../Search/Search'
 import WindowItem from '../WindowItem/WindowItem'
+import debounce from 'lodash.debounce'
 
 function Header (){
     const [burger,setBurger] = useState(false)
@@ -22,21 +23,21 @@ function Header (){
 
 
 
-    const getSearch = useCallback(
-        (e)=>{
-            dispatch(setSearch(e.target.value))
-        },
-    )
-    
-    
-    const getItem = async () =>{
-        dispatch(getShopItem({search}))
+
+    const getSearch = (e)=>{
+        dispatch(setSearch(e.target.value))
     }
+    
+    const getItem = useCallback(
+        debounce((a)=>{
+        dispatch(getShopItem(a))
+    },250),
+    []
+    )
 
     useEffect(()=>{ 
-        getItem();
-    },[search])
-
+        getItem({search});
+    },[search,getItem])
 
     const counter = (a) => a.reduce((sum, obj) => {
         return obj.count + sum;
@@ -64,21 +65,24 @@ return(<>
                             (search && location !== '/catalog' && inputSearch) && 
                             <div ref={searchRef} className="header__search_container">
                                 {console.log(location)}
-                                <div className='header__search_container-scroll'>{items.length>1 ? items.map(item => {return <Search key={item.id} i={item} inputSearch={setInputSearch} />}) : notItem()}</div>
+                                <div className='header__search_container-scroll'>
+                                    {items.length>=1 ? 
+                                    items.map(item => {return <Search key={item.id} i={item} inputSearch={setInputSearch} />}) 
+                                    : notItem()}
+                                </div>
                                 <div className="header__search_link-cnt">
                                     <Link to='catalog'  className="header__search_link"> Перейти в каталог</Link>
                                 </div>
                             </div>
-                           
                         }
                 </div>
                 <i className="fa fa-light fa-magnifying-glass header__nav_search-adaptive"></i>
                 <a className="header__nav_tel btn-special-green" href="tel:+380-630-130-103">+380 630 130 103</a>
                 <button className={burger ? "header__nav_btn active" : "header__nav_btn "}><img src={userSvg} alt="" /></button>
-                <div className="header__nav_cart">
+                <Link to={'cart'} className="header__nav_cart">
                     <i className="fa-solid fa-basket-shopping cart"></i>
                     <div className='header__nav_cart_circle'>{counter(itemsCart)}</div>
-                </div>
+                </Link>
                 <div className={burger ? "header__slider_container active" : "header__slider_container "} onClick={()=>setBurger(!burger)}><span className="header__slider"></span></div>
                 <div className={burger ? "header__nav_ui-container active": "header__nav_ui-container"}>
                     <button className={ burger ? 'header__nav_language active':"header__nav_language"}>
@@ -112,7 +116,7 @@ return(<>
                 <img src={shopperImg} alt="shopper" className="header__shopper" />
             </div>
         </div>
-        {windowObj && <WindowItem {...windowObj} />}
+        {windowObj && <WindowItem key={windowObj} {...windowObj} />}
     </header>
 </>)
 }

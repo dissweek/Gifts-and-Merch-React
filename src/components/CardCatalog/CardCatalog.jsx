@@ -7,7 +7,7 @@ function CardCatalog({i}){
     const dispatch = useDispatch()
 
     return(
-        <div className="catalog__card">
+        <div onClick={()=>dispatch(setWindowObj(i))} className="catalog__card">
             <div className="catalog__card_img-container">
                 <img src={mainImg} alt="image of item" className="catalog__card_img" />
             </div>
@@ -26,9 +26,9 @@ function CardCatalog({i}){
                 <div className="catalog__card_footer">
                     <div className="catalog__card_price-container">
                         <p className="catalog__card_price-text">From Price</p>
-                        <p className="catalog__card_price">{i.price}</p>
+                        <p className="catalog__card_price">${i.price}</p>
                     </div>
-                        <button onClick={()=>dispatch(setWindowObj(i))} className="catalog__card_basket-continer">
+                        <button className="catalog__card_basket-continer">
                             <i className="fa fa-light fa-basket-shopping basket" style={{color: '#000000'}} />
                         </button>
                 </div>

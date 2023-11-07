@@ -48,23 +48,24 @@
         }
     }
 
-        &_price{
+    &_price{
 
-            // margin-bottom: 30px;
+        // margin-bottom: 30px;
 
-            &_cnt{
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
+        &_cnt{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
 
-            }
+        }
 
-            &_btn{
-                .cart{
-                    font-size: 28px;
-                }
+        &_btn{
+            .cart{
+                font-size: 28px;
+                cursor: pointer;
             }
         }
+    }
 
 }
 

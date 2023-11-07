@@ -5,6 +5,7 @@ import "./scss/app.scss";
 import { BrowserRouter as BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import './utilites/i18next'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

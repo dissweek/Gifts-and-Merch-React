@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import style from "./style.module.scss";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import table from '../../assets/img/table.jpg'
@@ -11,6 +12,7 @@ function WindowItem(i) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [activeSize,setActeiveSize] = useState(0)
   const [activeColor,setActeiveColor] = useState(0)
+  const [itemAdd,setItemAdd] = useState(false)
   // console.log(i)
 
   const buy = () =>{
@@ -28,7 +30,18 @@ function WindowItem(i) {
     }
 
     dispatch(addProduct(item))
-    dispatch(setWindowObj(''))
+    setItemAdd(true)
+    
+    // dispatch(setWindowObj(''))
+  }
+
+  const changeSize = (index) =>{
+    setActeiveSize(index);
+    setItemAdd(false)
+  }
+  const changeColor = (index) =>{
+    setActeiveColor(index);
+    setItemAdd(false)
   }
 
   return (
@@ -95,7 +108,7 @@ function WindowItem(i) {
           <div className={style.right_color_cnt}>
             {i.res.map((obj,index)=>{
               return(
-                <button onClick={()=>setActeiveColor(index)} className={`catalog__card_btn ${style.right_color} ${activeColor === index && 'active'}`} style={{backgroundColor:`${obj.color}`}}></button>
+                <button onClick={()=>changeColor(index)} className={`catalog__card_btn ${style.right_color} ${activeColor === index && 'active'}`} style={{backgroundColor:`${obj.color}`}}></button>
               )
             })}
           </div>
@@ -105,19 +118,21 @@ function WindowItem(i) {
           <div className={style.right_text_cnt}>
             <p className={`${style.right_text} sub-text`}>{i.about}</p>
           </div>
-          <div className={style.right_low}>
+          {/* <div className={style.right_low}> */}
             <div className={style.right_size_cnt}>
-              <span className={`${style.right_size_span} sub-text`}>Размер</span>
-              <div className={style.right_size}>
-                {i.size.map((size,index)=>{
-                  return(
-                    <span onClick={()=>setActeiveSize(index)} className={`${style.right_size_text} ${activeSize === index && 'active'}`}>{size}</span>
-                  )
-                })}
+              <div className={style.right_size_flex}>
+                <span className={`${style.right_size_span} sub-text`}>Размер</span>
+                <div className={style.right_size}>
+                  {i.size.map((size,index)=>{
+                    return(
+                      <span onClick={()=>changeSize(index)} className={`${style.right_size_text} ${activeSize === index && 'active'}`}>{size}</span>
+                    )
+                  })}
+                </div>
               </div>
               <div className={style.right_btnBuy_cnt}>
                 <button onClick={()=>buy()} className={style.right_btnBuy}>
-                  <span>Заказать</span>
+                  <span>В корзину</span>
                 </button>
               </div>
 
@@ -134,9 +149,12 @@ function WindowItem(i) {
                   )
                 })}
               </div>
-            </div>
+            {/* </div> */}
           </div>
         </div>
+        {itemAdd && <div className={style.itemAdd_cnt}>
+          <Link to={'/cart'} onClick={()=>dispatch(setWindowObj(false))} className={style.itemAdd_link}>Товар добавлен. <br /> Перейти в корзину <i className="fa-solid fa-arrow-right"></i></Link>        
+        </div>}
       </div>
     </div>
   );

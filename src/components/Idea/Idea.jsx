@@ -1,10 +1,10 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useLocation } from 'react-router'
 
 import ideaRocket from "../../assets/img/rocket1.png"
 import ideaRocket2 from "../../assets/img/rocket2.png"
 import ideaLamp from "../../assets/img/idea-lamp.png"
-
 
 
 function Idea (){
@@ -16,16 +16,18 @@ function Idea (){
     } = useForm({
         mode:'onBlur',
     })
-
+    
     const onSubmit = (data)=>{
         console.log(data)
         reset()
     }
 
+    const location = useLocation().pathname
+
 return(<>
-  <section className="idea">
+  <section className={`idea ${location !== '/' && 'ideaCatalog'}`}>
             <div className="idea__wrapper wrapper">
-                <div className="idea__text_container">
+                <div className="idea__text_container ">
                     <h2 className="idea__text_title">
                         У вас своя УНИКАЛЬНАЯ идея по разработке мерча?
                     </h2>
@@ -38,9 +40,9 @@ return(<>
                     <p className="idea__form_title">
                         Введите свои контактные данные, и наш менеджер свяжется с Вами в течении 1 часа
                     </p>
-                    <form onSubmit={handleSubmit(onSubmit)} className="idea__form_form" method="POST">
+                    <form  onSubmit={handleSubmit(onSubmit)} className="idea__form_form" method="POST">
                         <div className='idea__form_input-cnt'>
-                            <input className="idea__form_input input_name" placeholder="Ваше Имя" type="text" {...register("contactName",{
+                            <input className="idea__form_input input_name" id='contact-tel' placeholder="Ваше Имя" type="text" {...register("contactName",{
                                 minLength:{
                                     value:2,
                                     message:'Мин. длинна 2 символа'

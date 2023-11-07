@@ -1,6 +1,21 @@
 .main {
 
 	&__banner {
+		
+		@media (max-width:992px){
+			padding: 325px 0 0 ;
+		}
+		@media (max-width:768px){
+			overflow-x: hidden;
+			padding: 200px 0 0 ;
+		}
+		@media (max-width:720px){
+			overflow-x: hidden;
+		}
+		@media (max-width:576px){
+			padding: 100px 0 0;
+		}
+
 		& .wrapper {
 			max-width: 1600px;
 			position: relative;
@@ -15,11 +30,21 @@
 		&_container {
 			max-width: 750px;
 			margin: 0;
+
+			@media (max-width:1200px){
+				max-width: 500px;
+			}
 		}
 
 		&_text-container {
 			position: relative;
 
+			@media (max-width:992px){
+				margin: 0 0 100px 0;
+			}
+			@media (max-width:576px){
+				margin: 0 0 250px 0;
+			}
 		}
 
 		&_text {
@@ -29,16 +54,53 @@
 			letter-spacing: 0.04em;
 			text-transform: uppercase;
 			color: #272525;
+
+			@media (max-width:1320px){
+				font-size: 36px;
+                line-height: 45px;
+                letter-spacing: 0.04em;
+			}
+			@media (max-width:992px){
+				width: 400px;
+			}
+			@media (max-width:576px){
+				width: 95%;
+			}
+			@media (max-width:470px){
+				font-size: 24px;
+			}
 		}
 
 		&_sub-text {
 			margin: 0 0 60px;
+
+			@media (max-width:1320px){
+				font-size: 16px;
+			}
+			@media (max-width:992px){
+				width: 300px;
+			}
 		}
 
 		&_about-container {
 			display: flex;
 			gap: 100px;
 			z-index: 2;
+
+			@media (max-width:1400px){
+				gap: 20px;
+			}
+			@media (max-width:992px){
+				position: absolute;
+                bottom: -450px;
+                left: 0;
+                right: 0;
+                width: 90vw;
+			}
+			@media (max-width:576px){
+				flex-direction: column;
+				top: 280px;
+			}
 		}
 
 		&_about {
@@ -47,6 +109,19 @@
 			align-items: center;
 			gap: 20px;
 			width: 20%;
+
+			@media (max-width:992px){
+				width: 100%;
+			}
+			@media (max-width:576px){
+				width: 120px;
+            	height: 100px;
+            	gap: 0;
+
+				&:not(:last-child){
+                	margin-bottom: 20px;
+            	}
+			}
 
 			&_text {
 				text-align: center;
@@ -63,10 +138,46 @@
 			position: absolute;
 			bottom: -150px;
 			right: 0;
+
+			@media (max-width:992px){
+				zoom: 0.8;
+                bottom: -250px;
+                right: 0px;
+			}
+			@media (max-width:720px){
+				left: 50%;
+                zoom: 0.7;
+                bottom: -300px;
+
+				& img{
+					transform: rotatey(180deg);
+					height: auto;
+				}
+			}
+			@media (max-width:576px){
+				zoom: 0.6;
+				bottom: -550px;
+				left: 40%;
+			}
 		}
 
 		&_adaptive-space {
 			display: none;
+
+			@media (max-width:992px){
+				display: block;
+                position: relative;
+                left: 0;
+                right: 0;
+                height: 400px;
+                width: 100vw;
+                background-image: url(../../assets/img/main-banner-my-bg.png);
+                background-size: 100% 110%;
+                background-repeat: no-repeat;
+			}
+			@media (max-width:576px){
+				height: 300px;
+			}
 		}
 	}
 }

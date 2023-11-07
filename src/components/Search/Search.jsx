@@ -14,12 +14,14 @@ export const notItem = () => {
 }
 
 function Search ({i,inputSearch}) {
-
+    
     const dispatch=useDispatch()
+
 
     const openWindow =(i)=>{
         dispatch(setWindowObj(i))
         inputSearch(false)
+
     }
 
     return(
@@ -34,7 +36,7 @@ function Search ({i,inputSearch}) {
                 </div>
             </div>
             <div className={style.header__search_price_cnt}>
-                <p className={style.header__search_price}>{i.price}</p>
+                <p className={style.header__search_price}>${i.price}</p>
                 <div className={style.header__search_price_btn} onClick={()=>openWindow(i)}><i className={`fa-solid fa-cart-plus ${style.cart}`}></i></div>
             </div>
 

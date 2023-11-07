@@ -20,7 +20,7 @@
     right: 0;
     @media (max-width:768px) {
         position: fixed;
-        z-index: 10;
+        z-index: 30;
         background:  rgba(253, 250, 252, 0.44);
         backdrop-filter: blur(5px);
     }
@@ -235,10 +235,9 @@
             padding: 10px;
             width: 100%;
             max-height: 510px;
-            // overflow-y: scroll;
             border: 2px solid rgb(197, 186, 202);
             border-radius: 25px;
-            background-color: rgb(237 224 243);
+            background-color: rgb(251, 243, 255);
             z-index: 10;
 
             &-scroll{

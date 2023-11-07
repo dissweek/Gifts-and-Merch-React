@@ -1,0 +1,54 @@
+.notFound{
+
+    &_cnt{
+        padding-top: 300px;
+        height: 50vh;
+        background: url(./../../assets/img/main-banner-bg.png);
+        background-size: 100vw 1000px;
+    }
+
+    &_title{
+        font-size: 92px;
+        font-family: 'FontAwesome';
+        font-weight: 800;
+        margin-bottom: 20px;
+
+        &_cnt{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 50px 0 100px;
+        }
+
+        &_sub{
+            white-space: pre;
+            font-size: 36px;
+            font-family: 'FontAwesome';
+            font-weight: 700;
+            letter-spacing: 3px
+        }
+    }
+
+    &_link{
+        font-size: 36px;
+        font-family: 'FontAwesome';
+        font-weight: 700;
+        margin: 0 auto;
+        width: fit-content;
+        padding: 15px 0px;
+        background-color: rgb(213, 206, 236);;
+        border: 3px solid rgb(169, 160, 207);
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all .3s;
+        
+        *{
+            padding: 30px 60px;
+        }
+        
+        &:hover{
+            transform: scale(1.2);
+            *{color: #b60808;} 
+        }
+    }
+}

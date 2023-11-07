@@ -24,7 +24,6 @@ export const catalogSlice = createSlice({
     },
     setSearch:(state,action)=>{
       state.search = action.payload
-      console.log(state.search)
     }
   },
   extraReducers: (builder) => {
@@ -44,7 +43,6 @@ export const catalogSlice = createSlice({
     }
 });
 
-// Action creators are generated for each case reducer function
 export const { setCategory,setSearch } = catalogSlice.actions;
 
 export default catalogSlice.reducer;

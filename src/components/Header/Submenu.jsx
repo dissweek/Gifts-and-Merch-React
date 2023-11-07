@@ -12,9 +12,9 @@ function Submenu(props) {
   return (
     <li className="header__item_menu-item" onMouseOver={(()=>{setExtraSubMenu(true)})} onMouseOut={(()=>{setExtraSubMenu(false)})}>
       <div className="header__item_menu-cnt">
-        <a href={link} className={`header__item_menu-list ${extraSubMenu? 'active' : ''}`}>
+        <Link to={'/' + link} className={`header__item_menu-list ${extraSubMenu? 'active' : ''}`}>
           {name}
-        </a>
+        </Link>
         {submenu && (
           <div
             className={`header__item_menu-sub header__item_menu ${

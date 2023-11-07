@@ -1,8 +1,10 @@
 import React from 'react'
+import { useLocation } from 'react-router'
 
 function Footer (){
+    const location = useLocation().pathname
 return(<>
- <footer className="footer">
+ <footer className={`footer ${location !== '/' && 'footerCatalog'}`}>
     
         <div className="footer__wrapper wrapper">
             <div className="footer__title-and-contacts">

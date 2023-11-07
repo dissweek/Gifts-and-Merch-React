@@ -1,5 +1,5 @@
 
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getShopItem, setCategory, setSearch } from "../../redux/slices/catalogSlice";
 import CardCatalog from "../CardCatalog/CardCatalog";
@@ -23,7 +23,7 @@ function SectionCatalog(){
       { name: "Маски", category: "mask" },
     ];
     const {items,status,category,search} = useSelector((state)=>state.catalog)
-    
+    const [activeCategory,setActeiveCategory] = useState(0)
     const dispatch = useDispatch()
 
     const getItem = async () =>{
@@ -34,6 +34,12 @@ function SectionCatalog(){
         getItem();
     },[category])
 
+    const menuClick = (i,index) =>{
+      dispatch(setCategory(i.category))
+      setActeiveCategory(index)
+      !i.category && dispatch(setSearch(''))
+    }
+
     return (
       <>
         <div className="background-space"></div>
@@ -42,7 +48,7 @@ function SectionCatalog(){
             <div className="catalog__filter_container">
               {filterList.map((i, index) => {
                 return (
-                  <div key={index} onClick={()=>dispatch(setCategory(i.category), !i.category && dispatch(setSearch('')))} className="catalog__filter">
+                  <div key={index} onClick={()=>menuClick(i,index)} className={`catalog__filter ${activeCategory === index && 'active'}`}>
                     <span className="catalog__filter_text">{i.name}</span>
                   </div>
                 );

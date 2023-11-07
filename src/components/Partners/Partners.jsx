@@ -23,7 +23,25 @@ function Partners (){
                 <div className="partners__slider_wrapper">
                     <div className="partners__slider_overflow">
                         <div ref={checkSliderWidth} className="partners__slider_slider">
-                            <Swiper modules={[Autoplay]}  autoplay= {{delay:0,disableOnInteraction: false}} speed={2000}  spaceBetween={0} slidesPerView={sliders == Infinity ? 5 : sliders } slidesPerGroup={1} loop={true}>
+                            <Swiper modules={[Autoplay]}  autoplay= {{delay:0,disableOnInteraction: false}} speed={2000}  spaceBetween={0} slidesPerGroup={1} loop={true}  breakpoints={
+                                {
+                                    320:{
+                                        slidesPerView:1
+                                    },
+                                    425:{
+                                        slidesPerView:2
+                                    },
+                                    768:{
+                                        slidesPerView:3
+                                    },
+                                    1024:{
+                                        slidesPerView:4
+                                    },
+                                    1440:{
+                                        slidesPerView:5
+                                    },
+                                }
+                                } >
                                 {partnersSlider.map((i,index)=>{ return (
                                     <SwiperSlide key={index}>
                                         <div className="partners__slider_img-container">

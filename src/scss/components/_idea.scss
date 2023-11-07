@@ -5,15 +5,47 @@
 	background-size: 120% 105%;
 	background-position-y: top;	
 
+	@media (max-width:1540px){
+		overflow-x: hidden;	
+	}
+	@media (max-width:1200px){
+		background-size: 150% 105%;
+	}
+	@media (max-width:992px){
+		background-size: 240% 95%;
+        background-position-x: -300px;
+        background-repeat: no-repeat;
+	}
+	@media (max-width:720px){
+		padding: 450px 0 100px;
+        position: relative;
+        overflow-x: clip;
+
+        background-position-x: center;
+        background-size: 230% 80%;
+        background-position-y: top;	
+	}
+
 
 	&__wrapper {
 		position: relative;
+
+		@media (max-width:720px){
+			position: static;
+		}
 	}
 
 	&__text {
 
 		&_container {
 			width: 556px;
+
+			@media (max-width:720px){
+				width: auto;
+			}
+			@media (max-width:420px){
+				text-align: center;
+			}
 		}
 
 		&_title {
@@ -24,10 +56,27 @@
 			line-height: 130%;
 			letter-spacing: 1.44px;
 			margin: 0 0 18px;
+
+			@media (max-width:992px){
+				font-size: 24px;
+			}
+			@media (max-width:420px){
+				text-align: center;
+			}
 		}
 
 		&_text {
 			margin: 0 0 90px;
+
+			@media (max-width:1200px){
+				margin-bottom: 150px;	
+			}
+			@media (max-width:992px){
+				width: 90%;
+			}
+			@media (max-width:720px){
+				margin-bottom: 50px;
+			}
 		}
 	}
 
@@ -36,6 +85,17 @@
 			display: flex;
 			flex-direction: column;
 			gap: 40px;
+
+			@media (max-width:1200px){
+				flex-direction: row;
+			}
+			@media (max-width:992px){
+				flex-direction: row;
+				justify-content: space-around;
+			}
+			@media (max-width:720px){
+				flex-direction: column;
+			}
 		}
 
 		&_title {
@@ -44,6 +104,17 @@
 			font-family: 'Gilroy SemiBold';
 			font-weight: 600;
 			width: 35%;
+
+			@media (max-width:1200px){
+				padding: 20px;	
+			}
+			@media (max-width:992px){
+				padding: 20px;
+			}
+			@media (max-width:720px){
+				width: auto;
+				padding: 0;
+			}
 		}
 
 		&_form {
@@ -51,6 +122,13 @@
 			justify-content: space-between;
 			align-items: center;
 			gap: 20px;
+
+			@media (max-width:1200px){
+				flex-direction: column;
+			}
+			@media (max-width:720px){
+				max-width: 350px;
+			}
 		}
 		
 		&_input {
@@ -62,12 +140,27 @@
 			border: none;
 			border-bottom: 2px solid black;
 
+			@media (max-width:1200px){
+				width: 110%;
+			}
+			@media (max-width:720px){
+				width: 90%;
+			}
+			@media (max-width:576px){
+				&::placeholder{
+					font-size: 14px;
+				}
+			}
+
 			&:focus{
 				border: none;
 			}
 
 			&-cnt{
 				position: relative;
+				@media (max-width:720px){
+					width: 100%;
+				}
 			}
 
 			&-err{
@@ -81,6 +174,14 @@
 		&_input-search {
 			width: 280px;
 			border: none;
+
+			@media (max-width:1320px){
+				width: 20%;	
+			}
+
+			@media (max-width:1200px){
+				width: 100%;
+			}
 		}
 	}
 
@@ -89,17 +190,74 @@
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%,-50%);
+
+		@media (max-width:1540px){
+			left: 55%;
+		}
+		@media (max-width:1200px){
+			top: 40%;
+			width: 100px;
+		}
+		@media (max-width:992px){
+			top: 40%;
+			width: 90px;
+		}
+		@media (max-width:720px){
+			top: 250px;
+            transform: translate(120%,0);
+		}
 	}
+
 	&__rocket-2{
 		position: absolute;
 		right: 0%;
 		top: 0%;
 		transform: translate(-50%,-50%);
+
+		@media (max-width:1540px){
+			left: 55%;
+			top: 0;
+		}
+		@media (max-width:1200px){
+			top: auto;
+            left: auto;
+            bottom: -100px;
+            right: 0;
+            width: 100px;
+		}
+		@media (max-width:992px){
+			top: auto;
+            left: 50px;;
+            bottom: -110px;
+            right: auto;
+            width: 100px;
+		}
+		@media (max-width:720px){
+            top: 250px;
+            left: 50%;
+            transform: translate(-210%,0);
+		}
 	}
 	&__lamp{
 		position: absolute;
 		left: 920px;
 		top: 5%;
 		transform: translate(0%,-35%);
+
+		@media (max-width:1200px){
+			left: auto;
+            right: -50px;
+            top: 45px;
+		}
+		@media (max-width:992px){
+			right: -100px;
+			width: 320px
+		}
+		@media (max-width:720px){
+			width: 280px;
+            left: 50%;
+            right: auto;
+            transform: translate(-50%,0);
+		}
 	}
 }
