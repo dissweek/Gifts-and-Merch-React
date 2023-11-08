@@ -1,5 +1,5 @@
 
-import React, { useEffect,useState } from "react";
+import React, { useEffect,useState,useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getShopItem, setCategory, setSearch } from "../../redux/slices/catalogSlice";
 import CardCatalog from "../CardCatalog/CardCatalog";
@@ -72,14 +72,22 @@ function SectionCatalog(){
     const {items,status,category,search} = useSelector((state)=>state.catalog)
     const [activeCategory,setActeiveCategory] = useState(0)
     const dispatch = useDispatch()
+    
+    // const getItem = (async () =>{
+    //   dispatch(getShopItem({category,search}))
+    // })
 
-    const getItem = async () =>{
+    // useEffect(()=>{ 
+    //   getItem();
+    // },[category])
+
+    const getItem = useCallback(async () =>{
       dispatch(getShopItem({category,search}))
-    }
-
+    }, [category, search,dispatch])
+  
     useEffect(()=>{ 
-        getItem();
-    },[category])
+      getItem();
+    },[category, getItem])
 
     const menuClick = (i,index) =>{
       dispatch(setCategory(i.category))
