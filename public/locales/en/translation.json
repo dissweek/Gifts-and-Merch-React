@@ -1,0 +1,111 @@
+{
+    "header":{
+        "promo":"shoppers with -25% discount",
+        "searchCatalogLink":"Go to catalog",
+        "searchNoItem":"We didn't find any matching products here.",
+        "searchNoItemSub":"Try searching in the catalog :)"
+    },
+    "main":{
+        "title":"A fresh breath in corporate life",
+        "titleCatalog":"buy a cup with a logo",
+        "bannerText":"We have improved the process of ordering products so that you and your company can focus on the main tasks and achieve the set goals.",
+        "bannerCatalogText":"Cups with a logo are a classic. Any conference or business meeting will not do without this prop. It is also a great gift for your employees, business partners, friends or regular customers. Owners of catering establishments can order large batches of cups for their restaurant or cafe. You can also distribute these products during advertising events, presentations, exhibitions or conferences.",
+        "bannerAboutFirst":{
+            "1":"High",
+            "2":" quality"
+        },
+        "bannerAboutSecond":{
+            "1":" Support",
+            "2":"manager"
+        },
+        "bannerAboutThird":{
+            "1":"Fulfillment of an order",
+            "2":"in turbo mode"
+        }
+    },
+    "popular":{
+        "title":"Most popular",
+        "subText":"Products most often ordered by our customers",
+        "link":"All goods"
+    },
+    "creative":{
+        "subTitle":"Do you want to surprise your colleagues/partners with unusual gifts?",
+        "subText":"Choose ready-made gift sets or specify the criteria by which we will assemble a unique box for you.",
+        "linkSets":"Go to sets",
+        "linkYour":"Create your own",
+        "contentTitle":"In addition to high-quality finished products, we can produce clothes, accessories, goodies and other items for you to order.",
+        "contentSubTitle":"Thanks to personal production, we produce large quantities in a short time, and you always have the opportunity to customize products."
+    },
+    "idea":{
+        "title":"Do you have your own UNIQUE idea for developing merch?",
+        "subTitle":"We will make merch according to your design. We will tell you life hacks and introduce you to production technology, and provide samples of materials.",
+        "formTitle":"Enter your contact information and our manager will contact you within 1 hour",
+        "placeholder":{
+            "name":"Your Name",
+            "mail":"Your e-mail",
+            "tel":"Your tel"
+        },
+        "checkReq":"Obligatory field",
+        "check":{
+            "name":{
+                "message":"Min. length 2 characters"
+            },
+            "mail":{
+                "message":"Min. length 5 characters",
+                "valid":"Check your email details"
+            },
+            "tel":{
+                "message":"Min. length 3 characters",
+                "valid":"Check the entered number"
+            }
+        },
+        "order":"Order"
+    },
+    "partners":{
+        "partners":"They cooperate with us"
+    },
+    "footer":{
+        "subTitle":{
+            "1":"Fresh breath in corporate life",
+            "2":"and corporate life breathes fresher"
+        },
+        "list":{
+            "category":"Category",
+            "sewing":"Sewing",
+            "allGoods":"All goods",
+            "sets":"Sets",
+            "production":"Production",
+            "information":"Information",
+            "about":"About Us",
+            "faq":"FAQ",
+            "contacts":"Contacts"
+        },
+        "formTitle":"Contact the manager",
+        "formSubTitle":{
+            "1":"Have a question that hasn't been answered?",
+            "2":"Leave your contact and our manager will contact you"
+        }
+    },
+    "cart":{
+        "contactsTitle":"Make an order",
+        "contactsText":"Enter your contact information and our manager will contact you within 1 hour",
+        "contactsSubText":"Pressing 'Confirm your agreement', you give time to process your personal data",
+        "order":"Order",
+        "cart":"Cart",
+        "clearCart":"Clear Cart",
+        "totalPrice": "Total: $",
+        "noItem":"There is nothing in your cart yet.",
+        "linkToCatalog":"Go to catalog"
+    },
+    "cardCart":{
+        "size":"Size:",
+        "color" : "Color:"
+    },
+    "popUpItem":{
+        "add":"Add to cart",
+        "params":"Characteristics",
+        "itemAdd":"Product added.",
+        "toCart":"Go to cart"
+    }
+
+}

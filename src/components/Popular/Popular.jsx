@@ -3,14 +3,16 @@ import item1 from "../../assets/img/popular-item.jpg";
 import item2 from "../../assets/img/popular-item2.jpg";
 import item3 from "../../assets/img/popular-item3.jpg";
 import item4 from "../../assets/img/popular-item4.jpg";
-import shopperImg from "../../assets/img/Header-shopper.png";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setCategory } from "../../redux/slices/catalogSlice";
+import { useTranslation } from "react-i18next";
 
 
 function Popular() {
   const dispatch = useDispatch()
+  const {t} = useTranslation()
+
   return (
     <>
       <section className="popular">
@@ -18,15 +20,15 @@ function Popular() {
           <div className="popular__nav-container">
             <div className="popular__nav_text-container">
               <h4 className="popular__nav-title">
-                Самое популярное{" "}
+                {t('popular.title')}{" "}
                 <i className="fa-solid fa-star popular__nav-title_icon cl-green"></i>
               </h4>
               <p className="popular__nav-subtext sub-text">
-                Товары, которые наиболее часто заказывают наши клиенты
+                {t('popular.subText')}
               </p>
             </div>
             <Link to={'/catalog'} className="popular__nav_link">
-              Все товары <i className="fa fa-light fa-arrow-right-long"></i>
+            {t('popular.link')} <i className="fa fa-light fa-arrow-right-long"></i>
             </Link>
           </div>
           <div className="popular__images_grid-container">

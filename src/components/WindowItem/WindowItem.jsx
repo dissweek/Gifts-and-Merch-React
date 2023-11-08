@@ -3,9 +3,9 @@ import style from "./style.module.scss";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
-import table from '../../assets/img/table.jpg'
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { addProduct, setWindowObj } from "../../redux/slices/cartSlice";
+import { useTranslation } from "react-i18next";
 
 function WindowItem(i) {
   const dispatch = useDispatch()
@@ -13,7 +13,7 @@ function WindowItem(i) {
   const [activeSize,setActeiveSize] = useState(0)
   const [activeColor,setActeiveColor] = useState(0)
   const [itemAdd,setItemAdd] = useState(false)
-  // console.log(i)
+  const {t} = useTranslation()
 
   const buy = () =>{
     
@@ -56,6 +56,7 @@ function WindowItem(i) {
                   "--swiper-navigation-color": "#000",
                   "--swiper-pagination-color": "#fff",
                 }}
+                key={'ms2'}
                 spaceBetween={10}
                 navigation={true}
                 loop={true}
@@ -63,11 +64,11 @@ function WindowItem(i) {
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="mySwiper2"
               >
-                {i.res.map((obj) => {
+                {i.res.map((obj,index) => {
                   return (
-                    <SwiperSlide>
+                    <SwiperSlide key={index+obj.img}>
                       <div className={style.swiper_slide}>
-                        <img className={style.swiper_slide_img} src={obj.img} />
+                        <img className={style.swiper_slide_img} src={obj.img} alt="item" />
                       </div>
                     </SwiperSlide>
                   );
@@ -76,6 +77,7 @@ function WindowItem(i) {
             </div>
             <div className={style.swiper_slide_bar}>
               <Swiper
+                key={'ms'}
                 onSwiper={setThumbsSwiper}
                 spaceBetween={10}
                 slidesPerView={4}
@@ -85,11 +87,11 @@ function WindowItem(i) {
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="mySwiper"
               >
-                {i.res.map((obj) => {
+                {i.res.map((obj,index) => {
                   return (
-                    <SwiperSlide>
+                    <SwiperSlide key={obj.img+index}>
                       <div className={style.swiper_slide}>
-                        <img className={style.swiper_slide_img} src={obj.img} />
+                        <img className={style.swiper_slide_img} src={obj.img} alt="slider" />
                       </div>
                     </SwiperSlide>
                   );
@@ -108,7 +110,7 @@ function WindowItem(i) {
           <div className={style.right_color_cnt}>
             {i.res.map((obj,index)=>{
               return(
-                <button onClick={()=>changeColor(index)} className={`catalog__card_btn ${style.right_color} ${activeColor === index && 'active'}`} style={{backgroundColor:`${obj.color}`}}></button>
+                <button key={index} onClick={()=>changeColor(index)} className={`catalog__card_btn ${style.right_color} ${activeColor === index && 'active'}`} style={{backgroundColor:`${obj.color}`}}></button>
               )
             })}
           </div>
@@ -118,42 +120,40 @@ function WindowItem(i) {
           <div className={style.right_text_cnt}>
             <p className={`${style.right_text} sub-text`}>{i.about}</p>
           </div>
-          {/* <div className={style.right_low}> */}
             <div className={style.right_size_cnt}>
               <div className={style.right_size_flex}>
-                <span className={`${style.right_size_span} sub-text`}>Размер</span>
+                <span className={`${style.right_size_span} sub-text`}>{t('cardCart.size')}</span>
                 <div className={style.right_size}>
                   {i.size.map((size,index)=>{
                     return(
-                      <span onClick={()=>changeSize(index)} className={`${style.right_size_text} ${activeSize === index && 'active'}`}>{size}</span>
+                      <span key={index+size} onClick={()=>changeSize(index)} className={`${style.right_size_text} ${activeSize === index && 'active'}`}>{size}</span>
                     )
                   })}
                 </div>
               </div>
               <div className={style.right_btnBuy_cnt}>
                 <button onClick={()=>buy()} className={style.right_btnBuy}>
-                  <span>В корзину</span>
+                  <span>{t('popUpItem.add')}</span>
                 </button>
               </div>
 
             </div>
             <div className={style.right_params_cnt}>
-              <p className={`style.right_params_par ${style.right_size_span} sub-text`}>Характеристики <i className="fa-solid fa-chevron-up"></i></p>
+              <p className={`style.right_params_par ${style.right_size_span} sub-text`}>{t('popUpItem.params')} <i className="fa-solid fa-chevron-up"></i></p>
               <div className={style.right_params}>
-                {i.parametr.map((obj)=>{
+                {i.parametr.map((obj,index)=>{
                   return(
-                    <div className={style.right_params_text_cnt}>
+                    <div key={index+obj.value} className={style.right_params_text_cnt}>
                       <p className={`${style.right_params_text} sub-text`}>{obj.name}</p>
                       <p className={`${style.right_params_text} sub-text`}>{obj.value}</p>
                     </div>
                   )
                 })}
               </div>
-            {/* </div> */}
           </div>
         </div>
         {itemAdd && <div className={style.itemAdd_cnt}>
-          <Link to={'/cart'} onClick={()=>dispatch(setWindowObj(false))} className={style.itemAdd_link}>Товар добавлен. <br /> Перейти в корзину <i className="fa-solid fa-arrow-right"></i></Link>        
+          <Link to={'/cart'} onClick={()=>dispatch(setWindowObj(false))} className={style.itemAdd_link}>{t('popUpItem.itemAdd')} <br /> {t('popUpItem.toCart')} <i className="fa-solid fa-arrow-right"></i></Link>        
         </div>}
       </div>
     </div>

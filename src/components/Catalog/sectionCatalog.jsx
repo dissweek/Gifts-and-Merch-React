@@ -4,23 +4,70 @@ import { useDispatch, useSelector } from "react-redux";
 import { getShopItem, setCategory, setSearch } from "../../redux/slices/catalogSlice";
 import CardCatalog from "../CardCatalog/CardCatalog";
 import Skeleton from "./Skeleton";
-
-
+import i18 from "../../utilites/i18next";
 
 function SectionCatalog(){
     const filterList = [
-      { name: "Все товары", category: "" },
-      { name: "Толстовки", category: "hoodie" },
-      { name: "Свитшот", category: "sweatshot" },
-      { name: "Футболки", category: "t-shirt" },
-      { name: "Поло", category: "polo" },
-      { name: "Жилетки", category: "vest" },
-      { name: "Рюкзак", category: "backpack" },
-      { name: "Бананки", category: "bnp" },
-      { name: "сумки/Шопперы", category: "shopper" },
-      { name: "Пледа", category: "plaid" },
-      { name: "Носки", category: "socks" },
-      { name: "Маски", category: "mask" },
+      {
+        name_ru: "Все товары",
+        name_en: "All Goods",
+        category: "",
+       },
+      {
+        name_ru: "Толстовки",
+        name_en: "Hoodie",
+        category: "hoodie",
+       },
+      {
+        name_ru: "Свитшот",
+        name_en: "Sweatshot",
+        category: "sweatshot",
+       },
+      {
+        name_ru: "Футболки",
+        name_en: "T-shirt",
+        category: "t-shirt",
+       },
+      {
+        name_ru: "Поло",
+        name_en: "Polo",
+        category: "polo",
+       },
+      {
+        name_ru: "Жилетки",
+        name_en: "Vest",
+        category: "vest",
+       },
+      {
+        name_ru: "Рюкзак",
+        name_en: "Backpack",
+        category: "backpack",
+       },
+      {
+        name_ru: "Бананки",
+        name_en: "Banana-Pack",
+        category: "bnp",
+       },
+      {
+        name_ru: "сумки/Шопперы",
+        name_en: "Shopper",
+        category: "shopper",
+       },
+      {
+        name_ru: "Пледа",
+        name_en: "Plaid",
+        category: "plaid",
+       },
+      {
+        name_ru: "Носки",
+        name_en: "Socks",
+        category: "socks",
+       },
+      {
+        name_ru: "Маски",
+        name_en: "Mask",
+        category: "mask",
+       },
     ];
     const {items,status,category,search} = useSelector((state)=>state.catalog)
     const [activeCategory,setActeiveCategory] = useState(0)
@@ -49,7 +96,7 @@ function SectionCatalog(){
               {filterList.map((i, index) => {
                 return (
                   <div key={index} onClick={()=>menuClick(i,index)} className={`catalog__filter ${activeCategory === index && 'active'}`}>
-                    <span className="catalog__filter_text">{i.name}</span>
+                    <span className="catalog__filter_text">{i18.language === "ru" ? i.name_ru : i.name_en}</span>
                   </div>
                 );
               })}

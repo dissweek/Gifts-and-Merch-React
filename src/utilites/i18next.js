@@ -8,8 +8,9 @@ i18
     .use(lanDtc)
     .use(initReactI18next)
     .init({
-        debug: true,
         fallbackLng: 'en'
-    })
+    });
+
+
 
     export default i18

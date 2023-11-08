@@ -11,9 +11,11 @@ import creativeCircle from "../../assets/img/creative-circle.png"
 
 import { sliderCreative } from '../../assets/list/sliders'
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 function Creative (){
+    const {t} = useTranslation()
     return(<>
         <section className="creative">
             <div className="creative__wrapper">
@@ -28,12 +30,11 @@ function Creative (){
                         <span className="creative__title_span creative__title_span-yellow">V</span>
                         <span className="creative__title_span creative__title_span-green">E</span>
                     </div>
-                    <h3 className="creative__subtitle">Хотите удивить ваших коллег/партнеров необычными подарками?</h3>
-                    <p className="creative__text sub-text">Выбирайте готовые подарочные наборы или укажите критерии по
-                        которым мы соберем для Вас уникальный бокс.</p>
+                    <h3 className="creative__subtitle">{t('creative.subTitle')}</h3>
+                    <p className="creative__text sub-text">{t('creative.subText')}</p>
                     <div className="creative__buttons">
-                        <Link to={'/catalog'} onClick={()=>window.scrollTo(0,550)} className="creative__buttons_btn creative__buttons_btn-left">Перейти к наборам</Link>
-                        <Link to={'/catalog'} onClick={()=>window.scrollTo(0,550)} className="creative__buttons_btn creative__buttons_btn-right">Создать свой</Link>
+                        <Link to={'/catalog'} onClick={()=>window.scrollTo(0,550)} className="creative__buttons_btn creative__buttons_btn-left">{t('creative.linkSets')}</Link>
+                        <Link to={'/catalog'} onClick={()=>window.scrollTo(0,550)} className="creative__buttons_btn creative__buttons_btn-right">{t('creative.linkYour')}</Link>
                     </div>
                     <div className="creative__image">
                         <img className="creative__image_img" src={creativeImage} alt="" />
@@ -48,12 +49,10 @@ function Creative (){
                 </div>
                 <div className="creative__we-can_content">
                     <p className="creative__we-can_content-title">
-                        Помимо готовой продукции высокого качества, мы можем для Вас произвести одежду, аксессуры,
-                        вкусности и другое под заказ.
+                        {t('creative.contentTitle')}
                     </p>
                     <p className="creative__we-can_content-subtitle sub-text">
-                        Благодаря личному производству мы изготавливаем большие партии в короткие сроки, а так же у Вас
-                        всегда есть возможность кастомизировать изделия.
+                        {t('creative.contentSubTitle')}
                     </p>
                     <div className="creative__we-can_slider">
                         <div  className="creative__we-can_slider-wrapper">

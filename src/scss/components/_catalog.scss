@@ -2,6 +2,12 @@
     &__banner{
 
         &_sub-text{
+            min-height: 163px;
+
+            @media (max-width:992px) {
+                min-height: 0;     
+            }
+
             @media (max-width:576px) {
                position: absolute;   
                width: 100%;
@@ -20,6 +26,11 @@
         }
 
         &_text{
+            min-height: 120px;
+
+            @media (max-width:992px) {
+                min-height: 0;     
+            }
             @media (max-width:576px) {
                 width: 70%;      
                 line-height: 30px;     

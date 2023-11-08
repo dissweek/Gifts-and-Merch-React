@@ -1,24 +1,25 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useRef} from 'react'
 import { partnersSlider } from '../../assets/list/sliders'
 import {Swiper,SwiperSlide,} from 'swiper/react'
-import {Navigation,Autoplay } from 'swiper/modules'
+import {Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation';
+import { useTranslation } from 'react-i18next'
 
 function Partners (){
     const checkSliderWidth= useRef()
     const checkImgWidth = useRef()
-    const [sliders,setSliders] = useState(5)
-    useEffect(()=>{
-        setSliders(Math.floor(checkSliderWidth.current.clientWidth / checkImgWidth.current.clientWidth))
-    console.log(sliders)
-    },[checkSliderWidth,checkImgWidth,sliders])
+    // const [sliders,setSliders] = useState(5)
+    // useEffect(()=>{
+    //     setSliders(Math.floor(checkSliderWidth.current.clientWidth / checkImgWidth.current.clientWidth))
+    // },[checkSliderWidth,checkImgWidth,sliders])
+    const {t} = useTranslation()
 
     return(
         <section className="partners">
             <div className="partners__slider wrapper">
                 <h2 className="partners__slider_title">
-                    С нами соотрудничают
+                    {t('partners.partners')}
                 </h2>
                 <div className="partners__slider_wrapper">
                     <div className="partners__slider_overflow">
@@ -49,8 +50,6 @@ function Partners (){
                                         </div>
                                     </SwiperSlide>
                                 )})}
-                                {/* <button slot="container-start"  className='prev'><i className="fa fa-light fa-chevron-left slider-btn btn-left cl-grey" ></i></button>
-                                <button slot="container-end"  className='next'><i className="fa fa-light fa-chevron-right slider-btn btn-right cl-grey "></i></button> */}
                             </Swiper>
                         </div>
                     </div>

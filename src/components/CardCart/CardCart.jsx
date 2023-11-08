@@ -1,10 +1,9 @@
 
-import React, { useEffect,useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getShopItem, setCategory, setSearch } from "../../redux/slices/catalogSlice";
-import { useForm } from 'react-hook-form'
+import React from "react";
+import { useDispatch } from "react-redux";
 import style from './style.module.scss'
 import { addProduct, minusItem, removeProduct } from "../../redux/slices/cartSlice";
+import { useTranslation } from "react-i18next";
 
 
 
@@ -12,6 +11,7 @@ import { addProduct, minusItem, removeProduct } from "../../redux/slices/cartSli
 function CardCart({i}){
     const totalPriceCard = i.price * i.count 
     const dispatch = useDispatch()
+    const {t} = useTranslation()
 
     const add = () =>{
         const item = {
@@ -35,8 +35,8 @@ function CardCart({i}){
             </div>
            <div className={style.card_cnt_f }>
                 <div className={style.card_params_cnt}>
-                    <div className={style.card_params_color}><span className={`${style.card_params_color_span} sub-text`}>Цвет:</span> <div className={style.card_params_color_circle} style={{backgroundColor:i.color}}></div></div>
-                    <p className={`${style.card_params} sub-text`}>Размер: {i.size}</p>
+                    <div className={style.card_params_color}><span className={`${style.card_params_color_span} sub-text`}>{t('cardCart.color')}</span> <div className={style.card_params_color_circle} style={{backgroundColor:i.color}}></div></div>
+                    <p className={`${style.card_params} sub-text`}>{t('cardCart.size')} {i.size}</p>
                 </div>
                 <div className={style.card_counter_cnt}>
                     <button className={style.card_counter_btn} onClick={()=>dispatch(minusItem(i))}>-</button>

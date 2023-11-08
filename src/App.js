@@ -6,18 +6,12 @@ import Cart from './pages/Cart/Cart';
 import Layout from './components/Layout/Layout';
 import { useSelector } from 'react-redux';
 import NotFound from './pages/NotFound/NotFound';
-import { Suspense } from 'react';
-import { useTranslation } from 'react-i18next';
-
-
 
 
 function App() {
-  const {scrollLock} = useSelector(state=>state.cart)
   localStorage.cart || localStorage.setItem('cart', '')
-  localStorage.totalPrice ||  localStorage.setItem('totalPrice', '0')
-  
-
+  localStorage.totalPrice ||  localStorage.setItem('totalPrice', '0')  
+  const {scrollLock} = useSelector(state=>state.cart)
 
   return (
     <div className={scrollLock ? 'scroll_lock' : undefined}>

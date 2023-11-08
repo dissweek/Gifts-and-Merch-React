@@ -43,7 +43,7 @@ export const cartSlice = createSlice({
         .filter((obj) => obj.color === action.payload.color)
         .filter((obj) => obj.size === action.payload.size);
       count.map((i) => {
-        state.itemsCart = state.itemsCart.filter((obj) => obj !== i);
+        return state.itemsCart = state.itemsCart.filter((obj) => obj !== i);
       });
       state.totalPrice = getTotalPrice(state);
       localStorage.cart = JSON.stringify(state.itemsCart)
@@ -51,7 +51,7 @@ export const cartSlice = createSlice({
     },
 
 
-    clearCart: (state, action) => {
+    clearCart: (state) => {
       state.itemsCart = [];
       state.totalPrice = 0;
       localStorage.setItem('cart','')

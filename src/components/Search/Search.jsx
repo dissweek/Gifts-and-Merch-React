@@ -4,11 +4,11 @@ import { setWindowObj } from "../../redux/slices/cartSlice";
 import { useDispatch } from "react-redux";
 
 
-export const notItem = () => {
+export const notItem = (a,b) => {
     return (
         <div className={`${style.header__search_item} ${style.header__search_noItem}`}>
-            <p className={style.header__search_noItem_text}> Мы не нашли тут подходящих товаров.</p><br />
-            <p className={style.header__search_noItem_subText}> Попробуйте поискать в каталоге :)</p>
+            <p className={style.header__search_noItem_text}> {a} </p><br />
+            <p className={style.header__search_noItem_subText}> {b} </p>
         </div>
     )
 }

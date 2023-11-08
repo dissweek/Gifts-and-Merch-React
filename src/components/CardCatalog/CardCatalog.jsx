@@ -9,7 +9,7 @@ function CardCatalog({i}){
     return(
         <div onClick={()=>dispatch(setWindowObj(i))} className="catalog__card">
             <div className="catalog__card_img-container">
-                <img src={mainImg} alt="image of item" className="catalog__card_img" />
+                <img src={mainImg} alt="Item" className="catalog__card_img" />
             </div>
             <div className="catalog__card_sub-container">
                 <p className="catalog__card_name">
