@@ -54,7 +54,7 @@ return(<>
                 </p>
                 <form action="sendmail.php" className="footer__form_input-container">
                     <input className="footer__form_input input_tel " type="tel" name="contact-tel" id="footer-tel"
-                        aria-label="footer-tel" placeholder="Номер телефона" />
+                        aria-label="footer-tel" placeholder={t('idea.placeholder.tel')} />
                     <input className="footer__form_input-submit submit disabled" type="submit"  value="&rarr;" />
                 </form>
             </div>
