@@ -1,0 +1,47 @@
+.loader {
+  width: 10vh;
+  height: 10vh;
+  margin-bottom: 30px;
+  border: 7px solid #FFF;
+  border-bottom-color: #FF3D00;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+
+  &__container{
+    position: fixed;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../../assets/img/main-banner-bg.png');
+  }
+
+  &__text{
+    position: relative;
+    top: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &_span{
+      font-size: 36px;
+      font-family: 'Gilroy ExtraBold';
+      color: #ffffff82;
+      -webkit-text-stroke: 1px #6c6c6c5b;
+      @media (max-width: 420px) {
+        font-size: 22px;
+      }
+    }
+  }  
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 
+}
+

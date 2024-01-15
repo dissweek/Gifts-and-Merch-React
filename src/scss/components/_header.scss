@@ -82,6 +82,9 @@
             @media (max-width:576px) {
                 padding: 20px;
             }
+            @media (max-width:455px) {
+                padding: 5px 20px;
+            }
 
         }
 
@@ -114,6 +117,14 @@
                 font-size: 20px;
                 width: 25px;
                 height: 25px;
+
+                @media (max-width:447px) {
+                    width: 18px;
+                    height: 18px;
+                    font-size: 16px;
+                    bottom: -2px;
+                    right: -2px;
+                }
             }
         }
 
@@ -132,16 +143,36 @@
 
             }
 
+            @media (max-width:992px) {
+                &.active{
+                    display: none;
+                }
+            }
+
             @media (max-width:940px) {
-                width: 90%;
+                width: max-content;
             }
 
             @media (max-width:768px) {
-                font-size: 28px;
+                font-size: 22px;
+                line-height: 18px;
             }
 
             @media (max-width:576px) {
                 font-size: 22px;
+            }
+            @media (max-width:439px) {
+                & a{
+                    white-space: pre;
+                }
+            }
+            @media (max-width:378px) {
+                font-size: 16px;
+                line-height: 16px;
+                & a{
+                    white-space: normal;
+                }
+
             }
         }
 
@@ -155,11 +186,27 @@
 
             @media (max-width:992px) {
                 display: none;
+
+                &.active{
+                    display: inline;
+                    height: 27px;
+                    padding: 5px;
+                    font-size: 16px;
+                }
             }
 
             &-cnt {
                 width: 40%;
                 position: relative;
+
+                @media (max-width:992px) {
+                    display: none;
+                    position: static;
+
+                    &.active{
+                        display: block;
+                    }
+                }
             }
         }
 
@@ -173,6 +220,10 @@
             @media (max-width:576px) {
                 font-size: 26px;
                 margin-right: 20px;
+            }
+
+            @media (max-width:378px) {
+                font-size: 16px;
             }
         }
 
@@ -230,9 +281,20 @@
                 max-height: 30px;
                 height: 100%;
 
-                &:first-child {
+                &.active {
                     border-bottom: 2px solid #272525;
                 }
+            }
+
+            &-space{
+                display: none;
+                @media (max-width:768px) {
+                    display: inline;
+                    font-family: 'Gilroy ExtraBold';
+                    color: #272525;
+                    margin: 0 5px
+                }
+
             }
 
             @media (max-width:768px) {
@@ -257,11 +319,24 @@
             top: 50px;
             padding: 10px;
             width: 100%;
+            min-width: 300px;
             max-height: 510px;
             border: 2px solid rgb(197, 186, 202);
             border-radius: 25px;
             background-color: rgb(251, 243, 255);
             z-index: 10;
+
+            @media (max-width:576px) {
+                min-width: none;
+                width: 90vw;
+                top:75px;
+                left: 50%;
+                right: 0;
+                transform: translateX(-50%);
+            }
+            @media (max-width:450px) {
+                top:65px;
+            }
 
             &-scroll {
                 max-height: 450px;
