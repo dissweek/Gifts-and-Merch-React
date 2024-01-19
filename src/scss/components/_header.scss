@@ -287,9 +287,9 @@
             }
 
             &-space{
-                display: none;
+                display: none !important;
                 @media (max-width:768px) {
-                    display: inline;
+                    display: inline !important;
                     font-family: 'Gilroy ExtraBold';
                     color: #272525;
                     margin: 0 5px
